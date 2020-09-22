@@ -1,2 +1,1 @@
-#cometsvr
-VR Haptic Glove Project
+# VR Haptic Glove Project
