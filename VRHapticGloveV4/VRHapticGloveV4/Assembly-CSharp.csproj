@@ -153,6 +153,7 @@
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarMaterialManager.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\ColliderZone.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Video\Scripts\MoviePlayerSampleControls.cs" />
+    <Compile Include="Assets\Scripts\MenuButtonAnimator.cs" />
     <Compile Include="Assets\Oculus\Spatializer\scripts\ONSPAudioSource.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\WindmillController.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\DebugUI\Scripts\LaserPointer.cs" />
@@ -245,6 +246,7 @@
      <None Include="Assets\Oculus\Avatar\Resources\Materials\Version1.5\Avatar_Mobile_Loader.shader" />
      <None Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Shaders\GradientSkybox.shader" />
      <None Include="Assets\Oculus\Avatar\Resources\Materials\Version1.5\Avatar_Mobile_SingleComponent.shader" />
+     <None Include="Assets\Fantasy Skybox FREE\Readme.txt" />
      <None Include="Assets\Oculus\Avatar\Resources\Materials\AvatarSurfaceShader.shader" />
      <None Include="Assets\Oculus\Avatar\Resources\Materials\Expressive\AvatarEyeLens.shader" />
      <None Include="Assets\Oculus\Avatar\Resources\Materials\Expressive\Avatar_PC_SingleComponentExpressive.shader" />

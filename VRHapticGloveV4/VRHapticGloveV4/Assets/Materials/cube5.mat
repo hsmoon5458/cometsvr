@@ -9,8 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: cube5
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_ShaderKeywords: _EMISSION
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -75,5 +75,5 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.9056604, g: 0.8906886, b: 0.089711644, a: 1}
-    - _EmissionColor: {r: 0.7510199, g: 0.8867924, b: 0.18823427, a: 1}
+    - _EmissionColor: {r: 0.74218357, g: 0.8773585, b: 0.16967781, a: 1}
   m_BuildTextureStacks: []

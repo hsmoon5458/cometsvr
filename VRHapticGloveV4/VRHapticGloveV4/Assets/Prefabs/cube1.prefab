@@ -126,3 +126,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bc7b6fbaf183174aba89198f3b6003f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cube_falling_angle: {x: 0, y: -0.2, z: -0.8}

@@ -30,13 +30,13 @@ public class LaunchPadFingerTrigger : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         // song play stauts is for avoiding the play to be played multiple times
-        if (other.gameObject.name == "Song1LV1_button") { song1_lv1 = false; GameLevels.song_play_status = false; }
-        if (other.gameObject.name == "Song1LV2_button") { song1_lv2 = false; GameLevels.song_play_status = false; }
-        if (other.gameObject.name == "Song2LV1_button") { song2_lv1 = false; GameLevels.song_play_status = false; }
-        if (other.gameObject.name == "Song2LV2_button") { song2_lv2 = false; GameLevels.song_play_status = false; }
-        if (other.gameObject.name == "Song3LV1_button") { song3_lv1 = false; GameLevels.song_play_status = false; }
-        if (other.gameObject.name == "Song3LV2_button") { song3_lv2 = false; GameLevels.song_play_status = false; }
-        if (other.gameObject.name == "Tutorial_button") { tutorial = false; GameLevels.song_play_status = false; }
+        if (other.gameObject.name == "Song1LV1_button") { song1_lv1 = false; }
+        if (other.gameObject.name == "Song1LV2_button") { song1_lv2 = false; }
+        if (other.gameObject.name == "Song2LV1_button") { song2_lv1 = false; }
+        if (other.gameObject.name == "Song2LV2_button") { song2_lv2 = false; }
+        if (other.gameObject.name == "Song3LV1_button") { song3_lv1 = false; }
+        if (other.gameObject.name == "Song3LV2_button") { song3_lv2 = false; }
+        if (other.gameObject.name == "Tutorial_button") { tutorial = false; }
         if (other.gameObject.name == "Stop_button") { stop_button = false; }
     }
 }

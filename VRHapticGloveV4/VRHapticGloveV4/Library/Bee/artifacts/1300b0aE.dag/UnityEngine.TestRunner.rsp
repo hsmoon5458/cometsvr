@@ -308,7 +308,7 @@
 -r:"C:/Program Files/Unity/Hub/Editor/2021.1.0f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Xml.Linq.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.1.0f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.1.0f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll"
--r:"D:/Unity Projects/VRHapticGloveV4/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
+-r:"D:/Unity Projects/cometsvr/VRHapticGloveV4/VRHapticGloveV4/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
 "Library/PackageCache/com.unity.test-framework@1.1.22/UnityEngine.TestRunner/AssemblyInfo.cs"
 "Library/PackageCache/com.unity.test-framework@1.1.22/UnityEngine.TestRunner/Assertions/AllocatingGCMemoryConstraint.cs"
 "Library/PackageCache/com.unity.test-framework@1.1.22/UnityEngine.TestRunner/Assertions/ConstraintsExtensions.cs"

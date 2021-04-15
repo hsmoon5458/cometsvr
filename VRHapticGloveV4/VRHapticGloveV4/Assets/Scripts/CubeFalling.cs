@@ -20,7 +20,7 @@ public class CubeFalling : MonoBehaviour
         {
             Destroy(gameObject);
             miss_count++;
-            Debug.Log(miss_count);
+            Debug.Log("Missed Cube: " + miss_count);
             //effect
         }
 
