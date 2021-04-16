@@ -14,9 +14,12 @@ public class GameLevels : MonoBehaviour
     public Quaternion cube_rotation = new Quaternion(0f, 0f, 0f, 1f);
     private Vector3 p1, p2, p3, p4, p5; // position of spawing for convinence
     private float beat_90 = 0.666667f; // time between each beat for 90bpm
-    public float start_time_offset_song1 = 0.2f, start_time_offset_song2 = 0.11f, start_time_offset_song3 = 0.18f,
+    private float song3_beat = 0.6665f;
+    private float start_time_offset_song1 = 0.15f,
+        start_time_offset_song2 = 0.11f,
+        start_time_offset_song3 = 0.06f,
         start_time_offset_tutorial = 0.03f;
-    private float offest_1 = 0.23f;
+    private float offest_1 = 0.23f; //song 1 later part
     public static bool song_play_status = false;
 
     void Start()
@@ -37,7 +40,7 @@ public class GameLevels : MonoBehaviour
     {
 
         // song play stauts is for avoiding the play to be played multiple times
-        if (LaunchPadFingerTrigger.song1_lv1 || Input.GetKeyDown("1") && song_play_status == false)
+        if (LaunchPadFingerTrigger.song1_lv1  && song_play_status == false)
         {
             Song1LV1();
             PlayAudio(song1);
@@ -69,7 +72,7 @@ public class GameLevels : MonoBehaviour
             StartCoroutine(WaitStatus());
         }
 
-        if (LaunchPadFingerTrigger.song3_lv1 && song_play_status == false)
+        if (LaunchPadFingerTrigger.song3_lv1 && song_play_status == false || Input.GetKeyDown("1"))
         {
             Song3LV1();
             PlayAudio(song3);
@@ -77,7 +80,7 @@ public class GameLevels : MonoBehaviour
             StartCoroutine(WaitStatus());
         }
 
-        if (LaunchPadFingerTrigger.song3_lv2 && song_play_status == false)
+        if (LaunchPadFingerTrigger.song3_lv2 && song_play_status == false || Input.GetKeyDown("2"))
         {
             Song3LV2();
             PlayAudio(song3);
@@ -85,7 +88,7 @@ public class GameLevels : MonoBehaviour
             StartCoroutine(WaitStatus());
         }
 
-        if (LaunchPadFingerTrigger.tutorial && song_play_status == false || Input.GetKeyDown("2"))
+        if (LaunchPadFingerTrigger.tutorial && song_play_status == false || Input.GetKeyDown("3"))
         {
             Tutorial();
             StartCoroutine(WaitASecSong(tutorial, 4.31f));
@@ -381,32 +384,161 @@ public class GameLevels : MonoBehaviour
 
     private void Song3LV1()
     {
-        CubeFalling.cube_falling_speed = 1.5f;
-        StartCoroutine(WaitASec(beat_90 * 1 + start_time_offset_song3, cube1, p1));
-        StartCoroutine(WaitASec(beat_90 * 3 + start_time_offset_song3, cube2, p2));
-        StartCoroutine(WaitASec(beat_90 * 5 + start_time_offset_song3, cube3, p3));
-        StartCoroutine(WaitASec(beat_90 * 7 + start_time_offset_song3, cube4, p4));
-        StartCoroutine(WaitASec(beat_90 * 9 + start_time_offset_song3, cube5, p5));
-        StartCoroutine(WaitASec(beat_90 * 11 + start_time_offset_song3, cube4, p4));
-        StartCoroutine(WaitASec(beat_90 * 13 + start_time_offset_song3, cube3, p3));
-        StartCoroutine(WaitASec(beat_90 * 15 + start_time_offset_song3, cube2, p2));
-        StartCoroutine(WaitASec(beat_90 * 17 + start_time_offset_song3, cube1, p1));
-        StartCoroutine(WaitASec(beat_90 * 19 + start_time_offset_song3, cube1, p1));
-        StartCoroutine(WaitASec(beat_90 * 21 + start_time_offset_song3, cube2, p2));
-        StartCoroutine(WaitASec(beat_90 * 23 + start_time_offset_song3, cube3, p3));
-        StartCoroutine(WaitASec(beat_90 * 25 + start_time_offset_song3, cube4, p4));
-        StartCoroutine(WaitASec(beat_90 * 27 + start_time_offset_song3, cube5, p5));
-        StartCoroutine(WaitASec(beat_90 * 29 + start_time_offset_song3, cube4, p4));
-        StartCoroutine(WaitASec(beat_90 * 31 + start_time_offset_song3, cube3, p3));
-        StartCoroutine(WaitASec(beat_90 * 33 + start_time_offset_song3, cube2, p2));
-        StartCoroutine(WaitASec(beat_90 * 35 + start_time_offset_song3, cube1, p1));
+        CubeFalling.cube_falling_speed = 2.5f;
+        StartCoroutine(WaitASec(song3_beat * 3 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 5 + start_time_offset_song3, cube3, p3));
+        StartCoroutine(WaitASec(song3_beat * 7 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 9 + start_time_offset_song3, cube1, p1));
 
-        song_play_status = false;
+        StartCoroutine(WaitASec(song3_beat * 11 + start_time_offset_song3, cube1, p1));
+        StartCoroutine(WaitASec(song3_beat * 13 + start_time_offset_song3, cube5, p5));
+        StartCoroutine(WaitASec(song3_beat * 15 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 17 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 19 + start_time_offset_song3, cube3, p3));
+        StartCoroutine(WaitASec(song3_beat * 21 + start_time_offset_song3, cube3, p3));
+        StartCoroutine(WaitASec(song3_beat * 23 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 25 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 27 + start_time_offset_song3, cube1, p1));//
+        StartCoroutine(WaitASec(song3_beat * 27 + start_time_offset_song3, cube5, p5));//
+        StartCoroutine(WaitASec(song3_beat * 29 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 31 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 32 + start_time_offset_song3, cube3, p3));
+
+        StartCoroutine(WaitASec(song3_beat * 35 + start_time_offset_song3, cube1, p1));
+        StartCoroutine(WaitASec(song3_beat * 37 + start_time_offset_song3, cube5, p5));
+        StartCoroutine(WaitASec(song3_beat * 39 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 41 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 43 + start_time_offset_song3, cube3, p3));
+        StartCoroutine(WaitASec(song3_beat * 45 + start_time_offset_song3, cube3, p3));
+        StartCoroutine(WaitASec(song3_beat * 47 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 49 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 51 + start_time_offset_song3, cube1, p1));//
+        StartCoroutine(WaitASec(song3_beat * 53 + start_time_offset_song3, cube5, p5));//
+        StartCoroutine(WaitASec(song3_beat * 55 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 57 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 59 + start_time_offset_song3, cube1, p1));
+        StartCoroutine(WaitASec(song3_beat * 61 + start_time_offset_song3, cube1, p1));
+        StartCoroutine(WaitASec(song3_beat * 63 + start_time_offset_song3, cube5, p5));
+        StartCoroutine(WaitASec(song3_beat * 65 + start_time_offset_song3, cube5, p5));
+
+        StartCoroutine(WaitASec(song3_beat * 67 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 69 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 71 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 72 + start_time_offset_song3, cube3, p3));
+        StartCoroutine(WaitASec(song3_beat * 73 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 75 + start_time_offset_song3, cube5, p5));
+        StartCoroutine(WaitASec(song3_beat * 77 + start_time_offset_song3, cube1, p1));
+        StartCoroutine(WaitASec(song3_beat * 79 + start_time_offset_song3, cube5, p5));
+        StartCoroutine(WaitASec(song3_beat * 80 + start_time_offset_song3, cube3, p3));
+        StartCoroutine(WaitASec(song3_beat * 81 + start_time_offset_song3, cube1, p1));
+
+        StartCoroutine(WaitASec(song3_beat * 83 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 85 + start_time_offset_song3, cube5, p5));
+        StartCoroutine(WaitASec(song3_beat * 87 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 89 + start_time_offset_song3, cube3, p3));
+        StartCoroutine(WaitASec(song3_beat * 91 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 93 + start_time_offset_song3, cube1, p1));
+        StartCoroutine(WaitASec(song3_beat * 95 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 97 + start_time_offset_song3, cube3, p3));
+
+        StartCoroutine(WaitASec(song3_beat * 99 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 101 + start_time_offset_song3, cube5, p5));
+        StartCoroutine(WaitASec(song3_beat * 103 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 105 + start_time_offset_song3, cube3, p3));
+        StartCoroutine(WaitASec(song3_beat * 107 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 109 + start_time_offset_song3, cube1, p1));
+        StartCoroutine(WaitASec(song3_beat * 111 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 113 + start_time_offset_song3, cube3, p3));
+
+        StartCoroutine(WaitASec(song3_beat * 115 + start_time_offset_song3, cube2, p2));//
+        StartCoroutine(WaitASec(song3_beat * 115 + start_time_offset_song3, cube4, p4));//
+        StartCoroutine(WaitASec(song3_beat * 117 + start_time_offset_song3, cube1, p1));//
+        StartCoroutine(WaitASec(song3_beat * 117 + start_time_offset_song3, cube5, p5));//
+        StartCoroutine(WaitASec(song3_beat * 119 + start_time_offset_song3, cube2, p2));//
+        StartCoroutine(WaitASec(song3_beat * 119 + start_time_offset_song3, cube4, p4));//
+        StartCoroutine(WaitASec(song3_beat * 121 + start_time_offset_song3, cube1, p1));//
+        StartCoroutine(WaitASec(song3_beat * 121 + start_time_offset_song3, cube5, p5));//
+
+
+
     }
 
     private void Song3LV2()
     {
+        CubeFalling.cube_falling_speed = 2.5f;
+        StartCoroutine(WaitASec(song3_beat * 3 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 5 + start_time_offset_song3, cube3, p3));
+        StartCoroutine(WaitASec(song3_beat * 7 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 9 + start_time_offset_song3, cube1, p1));
 
+        StartCoroutine(WaitASec(song3_beat * 11 + start_time_offset_song3, cube1, p1));
+        StartCoroutine(WaitASec(song3_beat * 13 + start_time_offset_song3, cube5, p5));
+        StartCoroutine(WaitASec(song3_beat * 15 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 17 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 19 + start_time_offset_song3, cube3, p3));
+        StartCoroutine(WaitASec(song3_beat * 21 + start_time_offset_song3, cube3, p3));
+        StartCoroutine(WaitASec(song3_beat * 23 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 25 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 27 + start_time_offset_song3, cube1, p1));//
+        StartCoroutine(WaitASec(song3_beat * 27 + start_time_offset_song3, cube5, p5));//
+        StartCoroutine(WaitASec(song3_beat * 29 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 31 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 32 + start_time_offset_song3, cube3, p3));
+
+        StartCoroutine(WaitASec(song3_beat * 35 + start_time_offset_song3, cube1, p1));
+        StartCoroutine(WaitASec(song3_beat * 37 + start_time_offset_song3, cube5, p5));
+        StartCoroutine(WaitASec(song3_beat * 39 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 41 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 43 + start_time_offset_song3, cube3, p3));
+        StartCoroutine(WaitASec(song3_beat * 45 + start_time_offset_song3, cube3, p3));
+        StartCoroutine(WaitASec(song3_beat * 47 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 49 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 51 + start_time_offset_song3, cube1, p1));//
+        StartCoroutine(WaitASec(song3_beat * 53 + start_time_offset_song3, cube5, p5));//
+        StartCoroutine(WaitASec(song3_beat * 55 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 57 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 59 + start_time_offset_song3, cube1, p1));
+        StartCoroutine(WaitASec(song3_beat * 61 + start_time_offset_song3, cube1, p1));
+        StartCoroutine(WaitASec(song3_beat * 63 + start_time_offset_song3, cube5, p5));
+        StartCoroutine(WaitASec(song3_beat * 65 + start_time_offset_song3, cube5, p5));
+
+        StartCoroutine(WaitASec(song3_beat * 67 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 69 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 71 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 72 + start_time_offset_song3, cube3, p3));
+        StartCoroutine(WaitASec(song3_beat * 73 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 75 + start_time_offset_song3, cube5, p5));
+        StartCoroutine(WaitASec(song3_beat * 77 + start_time_offset_song3, cube1, p1));
+        StartCoroutine(WaitASec(song3_beat * 79 + start_time_offset_song3, cube5, p5));
+        StartCoroutine(WaitASec(song3_beat * 80 + start_time_offset_song3, cube3, p3));
+        StartCoroutine(WaitASec(song3_beat * 81 + start_time_offset_song3, cube1, p1));
+
+        StartCoroutine(WaitASec(song3_beat * 83 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 85 + start_time_offset_song3, cube5, p5));
+        StartCoroutine(WaitASec(song3_beat * 87 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 89 + start_time_offset_song3, cube3, p3));
+        StartCoroutine(WaitASec(song3_beat * 91 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 93 + start_time_offset_song3, cube1, p1));
+        StartCoroutine(WaitASec(song3_beat * 95 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 97 + start_time_offset_song3, cube3, p3));
+
+        StartCoroutine(WaitASec(song3_beat * 99 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 101 + start_time_offset_song3, cube5, p5));
+        StartCoroutine(WaitASec(song3_beat * 103 + start_time_offset_song3, cube4, p4));
+        StartCoroutine(WaitASec(song3_beat * 105 + start_time_offset_song3, cube3, p3));
+        StartCoroutine(WaitASec(song3_beat * 107 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 109 + start_time_offset_song3, cube1, p1));
+        StartCoroutine(WaitASec(song3_beat * 111 + start_time_offset_song3, cube2, p2));
+        StartCoroutine(WaitASec(song3_beat * 113 + start_time_offset_song3, cube3, p3));
+
+        StartCoroutine(WaitASec(song3_beat * 115 + start_time_offset_song3, cube2, p2));//
+        StartCoroutine(WaitASec(song3_beat * 115 + start_time_offset_song3, cube4, p4));//
+        StartCoroutine(WaitASec(song3_beat * 117 + start_time_offset_song3, cube1, p1));//
+        StartCoroutine(WaitASec(song3_beat * 117 + start_time_offset_song3, cube5, p5));//
+        StartCoroutine(WaitASec(song3_beat * 119 + start_time_offset_song3, cube2, p2));//
+        StartCoroutine(WaitASec(song3_beat * 119 + start_time_offset_song3, cube4, p4));//
+        StartCoroutine(WaitASec(song3_beat * 121 + start_time_offset_song3, cube1, p1));//
+        StartCoroutine(WaitASec(song3_beat * 121 + start_time_offset_song3, cube5, p5));//
     }
 
     IEnumerator WaitASec(float waitTime, GameObject cube, Vector3 spawning_location)
